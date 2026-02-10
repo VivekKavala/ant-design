@@ -23,6 +23,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
     orientation,
     component: Component = 'div',
     children,
+    childrenFlex,
     ...othersProps
   } = props;
 
@@ -50,6 +51,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
       [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
       [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),
       [`${prefixCls}-vertical`]: mergedVertical,
+      [`${prefixCls}-has-children-flex`]: isNonNullable(childrenFlex),
     },
   );
 
@@ -57,6 +59,10 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
 
   if (isNonNullable(flex)) {
     mergedStyle.flex = flex;
+  }
+
+  if (isNonNullable(childrenFlex)) {
+    (mergedStyle as any)['--flex-children-flex'] = childrenFlex;
   }
 
   if (isNonNullable(gap) && !isPresetSize(gap)) {

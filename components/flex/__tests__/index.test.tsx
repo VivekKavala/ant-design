@@ -122,4 +122,17 @@ describe('Flex', () => {
       expect(container.querySelector<HTMLDivElement>('.ant-flex-vertical')).not.toBeNull();
     });
   });
+
+  it('childrenFlex should work', () => {
+    const { container } = render(
+      <Flex childrenFlex="1">
+        <div>Child 1</div>
+        <div>Child 2</div>
+      </Flex>,
+    );
+    const children = container.querySelectorAll('.ant-flex > div');
+    children.forEach((child) => {
+      expect(child).toHaveStyle({ flex: '1' });
+    });
+  });
 });
