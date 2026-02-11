@@ -25,6 +25,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 <code src="./demo/align.tsx">对齐方式</code>
 <code src="./demo/gap.tsx">设置间隙</code>
 <code src="./demo/wrap.tsx">自动换行</code>
+<code src="./demo/children-flex.tsx">子元素 Flex</code>
 <code src="./demo/combination.tsx">组合使用</code>
 <code src="./demo/debug.tsx" debug>调试专用</code>
 
@@ -44,6 +45,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 | gap | 设置网格之间的间隙 | `small` \| `middle` \| `large` \| string \| number | - |  |
 | component | 自定义元素类型 | React.ComponentType | `div` |  |
 | orientation | 主轴的方向类型 | `horizontal` \| `vertical` | `horizontal` | - |
+| childrenFlex | 设置所有子元素的 flex 属性 | [flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex) | - | 5.25.0 |
 
 ## Design Token
 
