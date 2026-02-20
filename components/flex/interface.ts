@@ -14,5 +14,6 @@ export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLEleme
   align?: React.CSSProperties['alignItems'];
   flex?: React.CSSProperties['flex'];
   gap?: LiteralUnion<SizeType, React.CSSProperties['gap']>;
+  childrenFlex?: React.CSSProperties['flex'];
   component?: CustomComponent<P>;
 }

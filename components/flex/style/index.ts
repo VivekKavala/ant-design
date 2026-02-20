@@ -48,6 +48,11 @@ const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
       '&:empty': {
         display: 'none',
       },
+      '&-has-children-flex': {
+        '& > *': {
+          flex: 'var(--flex-children-flex)',
+        },
+      },
     },
   };
 };

@@ -122,4 +122,21 @@ describe('Flex', () => {
       expect(container.querySelector<HTMLDivElement>('.ant-flex-vertical')).not.toBeNull();
     });
   });
+
+  it('childrenFlex should work', () => {
+    const { container } = render(
+      <Flex childrenFlex="1">
+        <div>Child 1</div>
+        <div>Child 2</div>
+      </Flex>,
+    );
+    const flex = container.querySelector('.ant-flex')!;
+    expect(flex).toHaveClass('ant-flex-has-children-flex');
+    expect(flex).toHaveStyle({ '--flex-children-flex': '1' });
+
+    const children = container.querySelectorAll('.ant-flex > div');
+    children.forEach((child) => {
+      expect(child).toHaveStyle({ flex: 'var(--flex-children-flex)' });
+    });
+  });
 });

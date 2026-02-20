@@ -24,6 +24,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 <code src="./demo/align.tsx">align</code>
 <code src="./demo/gap.tsx">gap</code>
 <code src="./demo/wrap.tsx">Wrap</code>
+<code src="./demo/children-flex.tsx">Children Flex</code>
 <code src="./demo/combination.tsx">combination</code>
 <code src="./demo/debug.tsx" debug>debug</code>
 
@@ -43,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | gap | Sets the gap between grids | `small` \| `middle` \| `large` \| string \| number | - |  |
 | component | custom element type | React.ComponentType | `div` |  |
 | orientation | direction of the flex | `horizontal` \| `vertical` | `horizontal` | - |
+| childrenFlex | Sets the flex property for all direct children | [flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) | - | 5.25.0 |
 
 ## Design Token
 
