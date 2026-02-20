@@ -19,6 +19,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
     style,
     flex,
     gap,
+    childrenFlex,
     vertical,
     orientation,
     component: Component = 'div',
@@ -50,6 +51,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
       [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
       [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),
       [`${prefixCls}-vertical`]: mergedVertical,
+      [`${prefixCls}-children-flex`]: isNonNullable(childrenFlex),
     },
   );
 
@@ -61,6 +63,14 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
 
   if (isNonNullable(gap) && !isPresetSize(gap)) {
     mergedStyle.gap = gap;
+  }
+
+  // Use CSS variable to pass the flex value to children.
+  // This avoids `React.Children.map` and `cloneElement` which causes performance overhead
+  // and breaks when children are custom components that don't forward style.
+  // The value is applied via CSS selector `& > *` in the style generation.
+  if (isNonNullable(childrenFlex)) {
+    (mergedStyle as any)['--ant-flex-item-flex'] = childrenFlex;
   }
 
   return (

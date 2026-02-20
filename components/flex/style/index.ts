@@ -96,6 +96,17 @@ const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
   return justifyStyle;
 };
 
+const genFlexChildrenStyle: GenerateStyle<FlexToken> = (token) => {
+  const { componentCls } = token;
+  return {
+    [`${componentCls}-children-flex`]: {
+      '> *': {
+        flex: 'var(--ant-flex-item-flex)',
+      },
+    },
+  };
+};
+
 export const prepareComponentToken: GetDefaultToken<'Flex'> = () => ({});
 
 export default genStyleHooks(
@@ -113,6 +124,7 @@ export default genStyleHooks(
       genFlexWrapStyle(flexToken),
       genAlignItemsStyle(flexToken),
       genJustifyContentStyle(flexToken),
+      genFlexChildrenStyle(flexToken),
     ];
   },
   prepareComponentToken,

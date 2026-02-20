@@ -24,6 +24,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 <code src="./demo/align.tsx">align</code>
 <code src="./demo/gap.tsx">gap</code>
 <code src="./demo/wrap.tsx">Wrap</code>
+<code src="./demo/children-flex.tsx">Children Flex</code>
 <code src="./demo/combination.tsx">combination</code>
 <code src="./demo/debug.tsx" debug>debug</code>
 
@@ -41,6 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | align | Sets the alignment of elements in the direction of the cross axis | [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | normal |  |
 | flex | flex CSS shorthand properties | [flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) | normal |  |
 | gap | Sets the gap between grids | `small` \| `middle` \| `large` \| string \| number | - |  |
+| childrenFlex | flex CSS shorthand properties for children | [flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) | - |  |
 | component | custom element type | React.ComponentType | `div` |  |
 | orientation | direction of the flex | `horizontal` \| `vertical` | `horizontal` | - |
 

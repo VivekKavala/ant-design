@@ -61,6 +61,33 @@ describe('Flex', () => {
     });
   });
 
+  describe('Props: childrenFlex', () => {
+    it('support number', () => {
+      const { container } = render(<Flex childrenFlex={1} />);
+      const element = container.querySelector<HTMLDivElement>('.ant-flex');
+      expect(element).toHaveClass('ant-flex-children-flex');
+      expect(element).toHaveStyle({ '--ant-flex-item-flex': '1' } as any);
+    });
+
+    it('support string', () => {
+      const { container } = render(<Flex childrenFlex="1 1 50%" />);
+      const element = container.querySelector<HTMLDivElement>('.ant-flex');
+      expect(element).toHaveClass('ant-flex-children-flex');
+      expect(element).toHaveStyle({ '--ant-flex-item-flex': '1 1 50%' } as any);
+    });
+
+    it('should support custom component', () => {
+      const Custom = () => <div>Custom</div>;
+      const { container } = render(
+        <Flex childrenFlex={1}>
+          <Custom />
+        </Flex>,
+      );
+      const element = container.querySelector<HTMLDivElement>('.ant-flex');
+      expect(element).toHaveClass('ant-flex-children-flex');
+    });
+  });
+
   it('Component work', () => {
     const testFcRef = React.createRef<HTMLDivElement>();
     const testClsRef = React.createRef<ClassCom>();
