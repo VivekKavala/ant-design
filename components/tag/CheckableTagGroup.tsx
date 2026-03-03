@@ -77,10 +77,10 @@ export interface CheckableTagGroupRef {
   nativeElement: HTMLDivElement;
 }
 
-function CheckableTagGroup<CheckableTagValue extends string | number>(
+const CheckableTagGroup = <CheckableTagValue extends string | number>(
   props: CheckableTagGroupProps<CheckableTagValue>,
   ref: React.Ref<CheckableTagGroupRef>,
-) {
+) => {
   const {
     id,
 
