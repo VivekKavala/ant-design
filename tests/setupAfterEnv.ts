@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 
 import { toHaveNoViolations } from 'jest-axe';
-import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
 
 import { defaultConfig } from '../components/theme/internal';
@@ -90,6 +89,7 @@ expect.addSnapshotSerializer({
   test: (node) => node && typeof node === 'object' && node.type === 'demo' && node.html,
   // @ts-ignore
   print: ({ html }) => {
+    const jsdom = require('jsdom');
     const { JSDOM } = jsdom;
     const { document } = new JSDOM().window;
     document.body.innerHTML = html;
