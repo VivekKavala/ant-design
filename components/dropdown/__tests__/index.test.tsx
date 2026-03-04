@@ -247,27 +247,27 @@ describe('Dropdown', () => {
   });
 
   it('should support horizontal placements', () => {
-    const { container: containerLeft } = render(
-      <Dropdown menu={{ items }} placement="left" open>
-        <button type="button">left</button>
-      </Dropdown>,
-    );
-    expect(containerLeft.querySelector('.ant-dropdown-placement-left')).toBeTruthy();
-    expect(
-      containerLeft.querySelector('.ant-slide-right-enter') ||
-        containerLeft.querySelector('.ant-slide-right-appear'),
-    ).toBeTruthy();
+    const placements = [
+      { placement: 'left', animation: 'ant-slide-right' },
+      { placement: 'leftTop', animation: 'ant-slide-right' },
+      { placement: 'leftBottom', animation: 'ant-slide-right' },
+      { placement: 'right', animation: 'ant-slide-left' },
+      { placement: 'rightTop', animation: 'ant-slide-left' },
+      { placement: 'rightBottom', animation: 'ant-slide-left' },
+    ] as const;
 
-    const { container: containerRight } = render(
-      <Dropdown menu={{ items }} placement="right" open>
-        <button type="button">right</button>
-      </Dropdown>,
-    );
-    expect(containerRight.querySelector('.ant-dropdown-placement-right')).toBeTruthy();
-    expect(
-      containerRight.querySelector('.ant-slide-left-enter') ||
-        containerRight.querySelector('.ant-slide-left-appear'),
-    ).toBeTruthy();
+    placements.forEach(({ placement, animation }) => {
+      const { container } = render(
+        <Dropdown menu={{ items }} placement={placement} open>
+          <button type="button">{placement}</button>
+        </Dropdown>,
+      );
+      expect(container.querySelector(`.ant-dropdown-placement-${placement}`)).toBeTruthy();
+      expect(
+        container.querySelector(`.${animation}-enter`) ||
+          container.querySelector(`.${animation}-appear`),
+      ).toBeTruthy();
+    });
   });
 
   it('not block ref', () => {
