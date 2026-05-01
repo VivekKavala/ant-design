@@ -297,10 +297,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
           [`&${componentCls}-open ${componentCls}-content`]: {
             color: token.colorTextPlaceholder,
-
-            '&-has-search-value': {
-              color: 'transparent',
-            },
           },
         },
       },

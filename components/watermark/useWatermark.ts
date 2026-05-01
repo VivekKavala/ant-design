@@ -30,7 +30,7 @@ export default function useWatermark(
   isWatermarkEle: (ele: Node) => boolean,
 ] {
   const watermarkMap = React.useRef(new Map<HTMLElement, HTMLDivElement>());
-  const onRemoveEvent = useEvent(onRemove);
+  const onRemoveEvent = useEvent(onRemove!);
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
